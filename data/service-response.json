@@ -1,0 +1,65 @@
+{
+  "Rooms": [
+    {
+      "Name": "Living Room",
+      "Temperature": 70,
+      "Lights": [
+        {
+          "Name": "Chandelier",
+          "Status": 0
+        },
+        {
+          "Name": "Wall Light 1",
+          "Status": 1
+        },
+        {
+          "Name": "Wall Light 2",
+          "Status": 0
+        },
+        {
+          "Name": "Disco Lights",
+          "Status": 0
+        }
+      ],
+      "Curtains": 1
+    },
+    {
+      "Name": "Master Bedroom",
+      "Temperature": 67,
+      "Lights": [
+        {
+          "Name": "Ceiling Light",
+          "Status": 1
+        },
+        {
+          "Name": "Reading Light Left",
+          "Status": 1
+        },
+        {
+          "Name": "Reading Light Right",
+          "Status": 0
+        }
+      ],
+      "Curtains": 0
+    },
+    {
+      "Name": "Guest Bedroom",
+      "Temperature": 68,
+      "Lights": [
+        {
+          "Name": "Ceiling Light",
+          "Status": 0
+        },
+        {
+          "Name": "Reading Light Left",
+          "Status": 0
+        },
+        {
+          "Name": "Reading Light Right",
+          "Status": 0
+        }
+      ],
+      "Curtains": 1
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+@import 'reset';
+
+$font-size: 20px;
+$font-size-large: 20px;
+$font-size-xlarge: 24px;
+$spacing: 16px;
+$spacing-large: 24px;
+$spacing-small: 8px;
+$spacing-xsmall: 4px;
+$border-radius: 3px;
+$arrow-svg: 'data:image/svg+xml;utf8,
+  <svg xmlns="http://www.w3.org/2000/svg" height="44" viewBox="0 0 48 48" width="40">
+    <path d="M14.83 16.42l9.17 9.17 9.17-9.17 2.83 2.83-12 12-12-12z" fill="white"/>
+    <path d="M0-.75h48v48h-48z" fill="none"/>
+  </svg>';
+
+body {
+  font-family: 'Helvetica';
+  font-size: $font-size;
+}
+
+.main-content {
+  padding: $spacing;
+
+  .room-select {
+    background: url($arrow-svg) no-repeat 98% 0;
+    background-color: #3B8EC2;
+    color: #FFF;
+    height: 44px;
+    width: 300px;
+    border-radius: $border-radius;
+
+    select {
+      font-family: 'Helvetica';
+      background-color: transparent;
+      width: 100%;
+      padding: $spacing-small;
+      font-size: $font-size-xlarge;
+    }
+  }
+
+  .room-container {
+    margin-top: $spacing-large;
+
+    .temperature {
+      padding: $spacing;
+      background-color: #DDD;
+      border-radius: $border-radius;
+      width: 210px;
+
+      .content {
+        display: flex;
+
+        .degrees {
+          font-size: 80px;
+          margin-right: $spacing;
+        }
+      }
+
+      .temperature-button {
+        text-decoration: none;
+        color: #FFF;
+        display: block;
+        width: 30px;
+        border-radius: $border-radius;
+        text-align: center;
+        padding: $spacing-xsmall;
+
+        &.hot {
+          background-color: #C23B4B;
+          margin: $spacing-small 0;
+        }
+
+        &.cold {
+          background-color: #4D99C2;
+        }
+
+        &.disable {
+          cursor: default;
+          background-color: #BBB;
+        }
+      }
+    }
+  }
+}
