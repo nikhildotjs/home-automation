@@ -25,3 +25,8 @@ export default class RoomSelector extends React.Component {
     );
   }
 }
+
+RoomSelector.propTypes = {
+  currentRoom: React.PropTypes.string,
+  changeRoom: React.PropTypes.func
+};

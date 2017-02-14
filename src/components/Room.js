@@ -19,3 +19,10 @@ export default class Room extends React.Component {
     );
   }
 }
+
+Room.propTypes = {
+  roomData: React.PropTypes.object,
+  changeTemperature: React.PropTypes.func,
+  changeCurtains: React.PropTypes.func,
+  changeLights: React.PropTypes.func
+};

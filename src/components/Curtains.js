@@ -23,3 +23,8 @@ export default class Curtains extends React.Component {
     );
   }
 }
+
+Curtains.propTypes = {
+  curtains: React.PropTypes.number,
+  changeCurtains: React.PropTypes.func
+};

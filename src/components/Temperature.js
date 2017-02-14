@@ -71,3 +71,8 @@ export default class Temperature extends React.Component {
     );
   }
 }
+
+Temperature.propTypes = {
+  temperature: React.PropTypes.number,
+  changeTemperature: React.PropTypes.func
+};

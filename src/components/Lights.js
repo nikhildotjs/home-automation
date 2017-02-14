@@ -34,3 +34,8 @@ export default class Lights extends React.Component {
     );
   }
 }
+
+Lights.propTypes = {
+  changeLights: React.PropTypes.func,
+  lights: React.PropTypes.array
+};

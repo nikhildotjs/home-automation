@@ -112,3 +112,7 @@ export default class HomeAutoTool extends React.Component {
     );
   }
 }
+
+HomeAutoTool.propTypes = {
+  roomData: React.PropTypes.object
+};
