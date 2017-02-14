@@ -8,6 +8,7 @@ $spacing-large: 24px;
 $spacing-small: 8px;
 $spacing-xsmall: 4px;
 $border-radius: 3px;
+$color-widget-background: #DDD;
 $arrow-svg: 'data:image/svg+xml;utf8,
   <svg xmlns="http://www.w3.org/2000/svg" height="44" viewBox="0 0 48 48" width="40">
     <path d="M14.83 16.42l9.17 9.17 9.17-9.17 2.83 2.83-12 12-12-12z" fill="white"/>
@@ -17,6 +18,10 @@ $arrow-svg: 'data:image/svg+xml;utf8,
 body {
   font-family: 'Helvetica';
   font-size: $font-size;
+}
+
+.bold {
+  font-weight: bold;
 }
 
 .main-content {
@@ -41,19 +46,26 @@ body {
 
   .room-container {
     margin-top: $spacing-large;
+    display: flex;
+    align-items: flex-start;
+    align-content:flex-start;
+    flex-wrap: wrap;
+
+    .widget {
+      padding: $spacing;
+      background-color: $color-widget-background;
+      border-radius: $border-radius;
+      width: 220px;
+      margin: 0 $spacing-large $spacing-large 0;
+    }
 
     .temperature {
-      padding: $spacing;
-      background-color: #DDD;
-      border-radius: $border-radius;
-      width: 210px;
-
       .content {
         display: flex;
 
         .degrees {
           font-size: 80px;
-          margin-right: $spacing;
+          margin-right: $spacing-large;
         }
       }
 
@@ -78,6 +90,61 @@ body {
         &.disable {
           cursor: default;
           background-color: #BBB;
+        }
+      }
+    }
+
+    .curtains {
+      .curtain-button {
+        text-decoration: none;
+        color: #FFF;
+        display: inline-block;
+        width: 80px;
+        border-radius: $border-radius;
+        text-align: center;
+        padding: $spacing-xsmall;
+        margin-left: $spacing;
+
+        &.open {
+          background-color: #3BC2B2;
+        }
+
+        &.closed {
+          background-color: #F08542
+        }
+      }
+    }
+
+    .lights {
+      width: auto;
+      min-width: 220px;
+
+      .light {
+        margin-top: $spacing-small;
+        overflow: auto;
+
+        .light-label {
+          margin-right: $spacing-small;
+          display: inline-block;
+          padding-top: $spacing-xsmall;
+        }
+
+        .light-button {
+          text-decoration: none;
+          color: #FFF;
+          display: inline-block;
+          border-radius: $border-radius;
+          text-align: center;
+          padding: $spacing-xsmall;
+          float: right;
+
+          &.on {
+            background-color: #FFCC00;
+          }
+
+          &.off {
+            background-color: #333;
+          }
         }
       }
     }

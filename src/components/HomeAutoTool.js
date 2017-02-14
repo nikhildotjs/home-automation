@@ -9,28 +9,30 @@ export default class HomeAutoTool extends React.Component {
 
     this.state = {
       rooms: this.props.roomData,
-      currentRoom: this.props.roomData[0].Name
+      currentRoomName: this.props.roomData[0].Name
     };
 
     // Bind this so that the function can be passed as a prop
     this.changeRoom = this.changeRoom.bind(this);
     this.changeTemperature = this.changeTemperature.bind(this);
+    this.changeCurtains = this.changeCurtains.bind(this);
+    this.changeLights = this.changeLights.bind(this);
   }
 
   changeRoom (roomName) {
     this.setState({
-      currentRoom: roomName
+      currentRoomName: roomName
     });
   }
 
   changeTemperature (newTemperature) {
-    let rooms = this.state.rooms;
-    const roomIndex = _.findIndex(rooms, { Name: this.state.currentRoom});
-    rooms[roomIndex].Temperature = newTemperature;
+    const rooms = this.state.rooms;
+    const currentRoom = rooms[_.findIndex(rooms, { Name: this.state.currentRoomName})];
+    currentRoom.Temperature = newTemperature;
     this.setState({rooms});
 
     let ajaxData = {
-      roomName: this.state.currentRoom,
+      roomName: this.state.currentRoomName,
       temperature: newTemperature
     };
 
@@ -47,14 +49,65 @@ export default class HomeAutoTool extends React.Component {
     });
   }
 
+  changeCurtains () {
+    const rooms = this.state.rooms;
+    const currentRoom = rooms[_.findIndex(rooms, { Name: this.state.currentRoomName})];
+    currentRoom.Curtains = 1 - currentRoom.Curtains; // Flip between 0 and 1
+    this.setState({rooms});
+
+    const ajaxData = {
+      roomName: this.state.currentRoomName,
+      curtains: currentRoom.Curtains
+    };
+
+    $.ajax({
+      method: 'PATCH',
+      url: '/api/curtains',
+      data: ajaxData,
+      success: (body) => {
+        console.log(body);
+      },
+      error: () => {
+        console.log('Curtain Change Failed');
+      }
+    });
+  }
+
+  changeLights (lightName) {
+    const rooms = this.state.rooms;
+    const currentRoom = rooms[_.findIndex(rooms, { Name: this.state.currentRoomName })];
+    const light = currentRoom.Lights[_.findIndex(currentRoom.Lights, { Name: lightName })];
+    light.Status = 1 - light.Status; // Flip between 0 and 1
+    this.setState({rooms});
+
+    const ajaxData = {
+      roomName: this.state.currentRoomName,
+      lightName: light.Name,
+      lightStatus: light.Status
+    };
+
+    $.ajax({
+      method: 'PATCH',
+      url: '/api/lights',
+      data: ajaxData,
+      success: (body) => {
+        console.log(body);
+      },
+      error: () => {
+        console.log('Curtain Change Failed');
+      }
+    });
+  }
+
   render () {
-    const currentRoomData = _.find(this.state.rooms, { Name: this.state.currentRoom});
+    const currentRoomData = _.find(this.state.rooms, { Name: this.state.currentRoomName});
     const roomNames = _.map(this.state.rooms, 'Name');
 
     return (
       <div className='main-content'>
-        <RoomSelector currentRoom={this.state.currentRoom} changeRoom={this.changeRoom} roomNames={roomNames}/>
-        <Room roomData={currentRoomData} changeTemperature={this.changeTemperature}/>
+        <RoomSelector currentRoom={this.state.currentRoomName} changeRoom={this.changeRoom} roomNames={roomNames}/>
+        <Room roomData={currentRoomData} changeTemperature={this.changeTemperature}
+          changeCurtains={this.changeCurtains} changeLights={this.changeLights}/>
       </div>
     );
   }

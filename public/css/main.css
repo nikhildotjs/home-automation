@@ -167,6 +167,9 @@ body {
   font-family: 'Helvetica';
   font-size: 20px; }
 
+.bold {
+  font-weight: bold; }
+
 .main-content {
   padding: 16px; }
   .main-content .room-select {
@@ -183,30 +186,70 @@ body {
       padding: 8px;
       font-size: 24px; }
   .main-content .room-container {
-    margin-top: 24px; }
-    .main-content .room-container .temperature {
+    margin-top: 24px;
+    display: flex;
+    align-items: flex-start;
+    align-content: flex-start;
+    flex-wrap: wrap; }
+    .main-content .room-container .widget {
       padding: 16px;
       background-color: #DDD;
       border-radius: 3px;
-      width: 210px; }
-      .main-content .room-container .temperature .content {
-        display: flex; }
-        .main-content .room-container .temperature .content .degrees {
-          font-size: 80px;
-          margin-right: 16px; }
-      .main-content .room-container .temperature .temperature-button {
-        text-decoration: none;
-        color: #FFF;
-        display: block;
-        width: 30px;
-        border-radius: 3px;
-        text-align: center;
-        padding: 4px; }
-        .main-content .room-container .temperature .temperature-button.hot {
-          background-color: #C23B4B;
-          margin: 8px 0; }
-        .main-content .room-container .temperature .temperature-button.cold {
-          background-color: #4D99C2; }
-        .main-content .room-container .temperature .temperature-button.disable {
-          cursor: default;
-          background-color: #BBB; }
+      width: 220px;
+      margin: 0 24px 24px 0; }
+    .main-content .room-container .temperature .content {
+      display: flex; }
+      .main-content .room-container .temperature .content .degrees {
+        font-size: 80px;
+        margin-right: 24px; }
+    .main-content .room-container .temperature .temperature-button {
+      text-decoration: none;
+      color: #FFF;
+      display: block;
+      width: 30px;
+      border-radius: 3px;
+      text-align: center;
+      padding: 4px; }
+      .main-content .room-container .temperature .temperature-button.hot {
+        background-color: #C23B4B;
+        margin: 8px 0; }
+      .main-content .room-container .temperature .temperature-button.cold {
+        background-color: #4D99C2; }
+      .main-content .room-container .temperature .temperature-button.disable {
+        cursor: default;
+        background-color: #BBB; }
+    .main-content .room-container .curtains .curtain-button {
+      text-decoration: none;
+      color: #FFF;
+      display: inline-block;
+      width: 80px;
+      border-radius: 3px;
+      text-align: center;
+      padding: 4px;
+      margin-left: 16px; }
+      .main-content .room-container .curtains .curtain-button.open {
+        background-color: #3BC2B2; }
+      .main-content .room-container .curtains .curtain-button.closed {
+        background-color: #F08542; }
+    .main-content .room-container .lights {
+      width: auto;
+      min-width: 220px; }
+      .main-content .room-container .lights .light {
+        margin-top: 8px;
+        overflow: auto; }
+        .main-content .room-container .lights .light .light-label {
+          margin-right: 8px;
+          display: inline-block;
+          padding-top: 4px; }
+        .main-content .room-container .lights .light .light-button {
+          text-decoration: none;
+          color: #FFF;
+          display: inline-block;
+          border-radius: 3px;
+          text-align: center;
+          padding: 4px;
+          float: right; }
+          .main-content .room-container .lights .light .light-button.on {
+            background-color: #FFCC00; }
+          .main-content .room-container .lights .light .light-button.off {
+            background-color: #333; }

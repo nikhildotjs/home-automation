@@ -31,5 +31,19 @@ export default {
       console.log(req.body);
       res.status(200).send(`Temperature updated to ${req.body.temperature}`);
     });
+
+    // Routing for endpoint to update room curtains
+    app.patch('/api/curtains', (req, res) => {
+      console.log(req.body);
+      const curtainStatus = Number(req.body.curtains) ? 'Opened' : 'Closed';
+      res.status(200).send(`${req.body.roomName} Curtain ${curtainStatus}`);
+    });
+
+    // Routing for endpoint to update room lights
+    app.patch('/api/lights', (req, res) => {
+      console.log(req.body);
+      const lightStatus = Number(req.body.lightStatus) ? 'On' : 'Off';
+      res.status(200).send(`${req.body.roomName} ${req.body.lightName} ${lightStatus}`);
+    });
   }
 }

@@ -56,8 +56,8 @@ export default class Temperature extends React.Component {
     const disableHeating = this.state.disableHeating ? 'disable' : '';
 
     return (
-      <div className='temperature'>
-        <span>Room Temperature</span>
+      <div className='temperature widget'>
+        <span className='bold'>Room Temperature</span>
         <div className='content'>
           <div className='degrees'>
             {this.props.temperature}°
