@@ -13,7 +13,7 @@ export default {
 
     // Routing for the view
     app.get('/ha-dashboard', (req, res) => {
-      res.sendFile(path.resolve(__dirname, '../views/index.html'));
+      res.sendFile(path.resolve(__dirname, '../public/index.html'));
     });
 
     // Redirect for root
